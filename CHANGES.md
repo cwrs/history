@@ -1,5 +1,7 @@
 ## [HEAD]
 
+- `createHashHistory` now only handles hashes that start with a '/' as only those urls may be created by the history
+
 - Disable browser history on Chrome iOS ([#146])
 - Add ES2015 module build ([#152])
 

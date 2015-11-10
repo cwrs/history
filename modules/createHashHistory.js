@@ -71,8 +71,8 @@ function createHashHistory(options={}) {
 
   function startHashChangeListener({ transitionTo }) {
     function hashChangeListener() {
-      if (!ensureSlash())
-        return // Always make sure hashes are preceeded with a /.
+      if (!isAbsolutePath(getHashPath()))
+        return // Only handle hashes that could be created by the history.
 
       transitionTo(
         getCurrentLocation()
