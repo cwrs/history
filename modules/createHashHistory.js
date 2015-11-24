@@ -130,7 +130,7 @@ function createHashHistory(options={}) {
 
   function listenBefore(listener) {
     if (++listenerCount === 1)
-      stopHashChangeListener = startHashChangeListener(history)
+      stopHashChangeListener = startHashChangeListener(this)
 
     let unlisten = history.listenBefore(listener)
 
@@ -144,7 +144,7 @@ function createHashHistory(options={}) {
 
   function listen(listener) {
     if (++listenerCount === 1)
-      stopHashChangeListener = startHashChangeListener(history)
+      stopHashChangeListener = startHashChangeListener(this)
 
     let unlisten = history.listen(listener)
 
@@ -192,7 +192,7 @@ function createHashHistory(options={}) {
   // deprecated
   function registerTransitionHook(hook) {
     if (++listenerCount === 1)
-      stopHashChangeListener = startHashChangeListener(history)
+      stopHashChangeListener = startHashChangeListener(this)
 
     history.registerTransitionHook(hook)
   }
@@ -204,6 +204,7 @@ function createHashHistory(options={}) {
     if (--listenerCount === 0)
       stopHashChangeListener()
   }
+
 
   return {
     ...history,
